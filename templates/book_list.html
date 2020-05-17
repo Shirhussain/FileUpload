@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5 col-6">
+	{% block content_header %}
+		<h3>List of books</h3>
+		<p><a href="{% url 'upload' %}" class="btn btn-success">Upload</a></p>
+	{% endblock content_header %}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Cover</th>
+				<th>Title</th>
+				<th>Author</th>
+				<th>PDF</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for book in books %}
+			<tr>
+				<td>
+					{% if book.cover %}
+						<img src="{{book.cover.url}}" alt="{{book.title}}" style="width: 100px;">
+					{% else %}
+						<small class="text-muted">No cover</small>
+					{% endif %}
+
+				</td>
+				<td>{{book.title}}</td>
+				<td>{{book.author}}</td>
+				<td>
+					<a target="_blank" href="{{book.pdf.url}}" class="btn btn-primary btn-sm">PDF</a>
+				</td>
+				<td>
+					<form method="POST" action="{% url 'delete_book' book.pk %}">
+						{% csrf_token %}
+						<button class="btn btn-danger btn-sm">Delete</button>
+					</form>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock content %}

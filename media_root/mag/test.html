@@ -1,0 +1,44 @@
+<form
+  method="post"
+  id="comment_sent"
+  name="comment_sent"
+  action="http://streamtube.streamhash.com/addComment"
+>
+  <input type="hidden" value="293" name="video_tape_id" />
+
+  <div class="star-rating star-rating-active rating-md">
+    <s
+      ><s
+        ><s
+          ><s><s></s></s></s></s
+    ></s>
+  </div>
+  <input
+    id="rating_system"
+    name="ratings"
+    type="number"
+    class="rating comment_rating"
+    value=""
+    min="1"
+    max="5"
+    step="1"
+    style="display: none;"
+  />
+
+  <textarea
+    rows="10"
+    id="comment"
+    name="comments"
+    placeholder="Add a public comment here"
+  ></textarea>
+
+  <p class="underline"></p>
+  <button
+    class="btn pull-right btn-sm btn-info btn-lg top-btn-space"
+    type="submit"
+    id="comment_btn"
+  >
+    Comment
+  </button>
+  <div class="clearfix"></div>
+</form>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container col-6" >
+	<h3>Upload the book</h3>
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{form|crispy}}
+		<button type="submit" class="btn btn-primary">upload book</button>
+		<!-- <input type="submit" name="submit" class="btn btn-primary" value="submit"> -->
+	</form>
+</div>	
+{% endblock content %}
